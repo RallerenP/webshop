@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Web Shop</a>
+    <form class="form-inline">
+        <button class="btn btn-outline-secondary mx-2 my-2 my-sm-0" type="submit">Shopping Card</button>
+        <a href="/login" class="btn btn-outline-secondary mx-2 my-2 my-sm-0">Login</a>
+    </form>
+</nav>
+
+<div class="d-flex align-content-start flex-wrap">
+    <ul class="nav flex-column col-1 border border-danger">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+    <tr th:each="item : ${items}">
+        <a th:href="@{/productPage(id=${item.itemId})}">
+            <div class="p-2 bd-highlight border border-danger" style="width: 12rem">
+                <img th:src="${item.imageDirectory}" class="card-img-top" style="width: 100%; height: 40%" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${item.itemDescription}"></h5>
+                    <p class="card-text" th:text="${item.price}"></p>
+                    <a href="/login" class="btn btn-primary">Login to add to Shopping Card</a>
+                </div>
+            </div>
+        </a>
+    </tr>
+</div>
+
+
+<!--<div>-->
+<!--    <div class="column side">-->
+<!--        <h2>Middle</h2>-->
+<!--    </div>-->
+<!--    <div class="column middle">-->
+<!--        <tr th:each="item : ${items}">-->
+<!--            <div class="gallery">-->
+<!--                <a th:href="@{/productPage(id=${item.itemId})}">-->
+<!--                    <img th:src="${item.imageDirectory}"/>-->
+<!--                    <div class="desc" th:text="${item.itemDescription}"></div>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </tr>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="bottom">-->
+<!--    <h3>Bottom</h3>-->
+<!--</div>-->
+</body>
+</html>

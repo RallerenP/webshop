@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/Style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="top">
+    <h1>Web Shop</h1>
+</div>
+<div>
+    <div class="column side">
+        <h2>Middle</h2>
+    </div>
+    <div class="column middle">
+        <div class="gallery">
+            <img th:src="${item.get().getImageDirectory()}"/>
+            <div class="desc" th:text="${item.get().getItemDescription()}"></div>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+    <h3>Bottom</h3>
+</div>
+
+</body>
+</html>
