@@ -21,21 +21,16 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        System.out.println("TEST0");
         return "login";
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute User user, Model model, HttpSession session) {
         List<User> users = (List<User>) userRepository.findAll();
-        System.out.println();
-        System.out.println("TEST1: " + users.get(0).getUserName());
-        System.out.println("TEST1: " + users.get(1).getUserName());
         for (User temp : users) {
             if (user.getUserName().equals(temp.getUserName())) {
                 session.setAttribute("isLogin", "yes");
                 model.addAttribute("items", userRepository.findAll());
-                System.out.println("TEST2: " + user.getUserName());
                 return "redirect:/";
             }
         }
